@@ -7,7 +7,16 @@ public class UserData {
 	private Long version;
 	private String company;
 	
-	
+	public UserData() {
+
+	}
+	public UserData(String userid, String fullname, Long version, String company) {
+		super();
+		this.userid = userid;
+		this.fullname = fullname;
+		this.version = version;
+		this.company = company;
+	}
 	public String getUserid() {
 		return userid;
 	}
@@ -32,8 +41,8 @@ public class UserData {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	@Override
-	public String toString() {
+
+	public String toFormattedString() {
 		return "UserData [userid=" + userid + ", fullname=" + fullname + ", version=" + version + ", company=" + company
 				+ "]";
 	}
@@ -78,5 +87,10 @@ public class UserData {
 			return false;
 		return true;
 	}
-
+	
+	@Override
+	public String toString() {
+		return this.userid + this.fullname + this.version + this.company;
+	}
+	
 }

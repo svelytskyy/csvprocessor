@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,31 +19,44 @@ import org.apache.log4j.Logger;
 import com.availity.csv.lexical.CsvFormat;
 import com.availity.csv.lexical.CsvLexicalAnalyzer;
 import com.availity.csv.parser.CsvRecordParser;
+import com.availity.csv.utils.CsvUtils;
 import com.availity.csvprocessor.model.UserData;
 
 public class CsvLoader {
 	
 	final static Logger log = Logger.getLogger(CsvLoader.class);
 	
+	private Hashtable<String, List<List<String>>> companyBufferData = new Hashtable<String, List<List<String>>>();
+	
 	public ArrayList<UserData> loadcsv(String csvFile, String path, long bufferSize) {
 		
 		String file = path + csvFile;
 	    Scanner scanner = null;
 		try {
+			CsvUtils.cleanStage(path);
 			scanner = new Scanner(new File(file));
 			long recordNum = 1;
 			CsvRecordParser parser = new CsvRecordParser();
+			List<UserData>buffer = new ArrayList<UserData>();
 			while (scanner.hasNext()) {
 	           String line = scanner.nextLine();
 	           try {
 	        	   List<String>parsedline = parser.parseRecord(line, new CsvLexicalAnalyzer(CsvFormat.DEFAULT));
 	        	   log.debug(parsedline);
+	        	   CsvUtils.putValue(companyBufferData, parsedline, parsedline.get(3));
+	        	   if((recordNum % bufferSize) == 0 || !scanner.hasNext()) {
+	        		   CsvWriter writer = new CsvWriter();
+	        		   writer.writeToFile(companyBufferData, path);
+	        		   log.debug(companyBufferData);
+	        		   companyBufferData =  new Hashtable<String, List<List<String>>>();
+	        	   }
 			} catch (Exception e) {
 				log.error(e);
 			}
 	           //List<String> parsedLine = parser.parseRecord(line, ',', '"');
 	           recordNum++;
 			}
+			
 		} catch (FileNotFoundException e) {
 			log.error(e);
 		} finally {
