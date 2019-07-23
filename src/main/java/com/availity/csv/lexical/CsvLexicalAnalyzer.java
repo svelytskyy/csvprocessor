@@ -1,9 +1,12 @@
 package com.availity.csv.lexical;
 
+import org.apache.log4j.Logger;
+
 import com.availity.csv.lexical.enumer.CsvColumnTypeEnum;
 import com.availity.csv.lexical.enumer.LexicalActionEnum;
 import com.availity.csv.lexical.enumer.LexicalTokenEnum;
 import com.availity.csv.lexical.enumer.LineStatusEnum;
+import com.availity.csv.utils.CsvUtils;
 
 public class CsvLexicalAnalyzer {
 
@@ -17,7 +20,9 @@ public class CsvLexicalAnalyzer {
     private int quotesInQuotedColumn;
     private int columnNum;
     private boolean isNewColumn = true;
-
+    
+    final static Logger log = Logger.getLogger(CsvLexicalAnalyzer.class);
+    
     public CsvLexicalAnalyzer(final CsvFormat format) {
         this.delimiter = format.getDelimiter();
         this.quoteChar = format.getQuoteCharacter();

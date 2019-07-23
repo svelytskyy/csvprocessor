@@ -1,6 +1,9 @@
 package com.availity.csvprocessor.model;
 
-public class UserData {
+import java.util.Comparator;
+import java.util.List;
+
+public class UserData implements Comparable<UserData>{
 	
 	private String userid;
 	private String fullname;
@@ -17,6 +20,15 @@ public class UserData {
 		this.version = version;
 		this.company = company;
 	}
+	
+	public void createUserData(List<String> lst) throws Exception{
+		this.userid = lst.get(0);
+		this.fullname = lst.get(1);
+		this.version = Long.parseLong(lst.get(2));
+		this.company = lst.get(3);
+	}
+	
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -91,6 +103,13 @@ public class UserData {
 	@Override
 	public String toString() {
 		return this.userid + this.fullname + this.version + this.company;
+	}
+
+	@Override
+	public int compareTo(UserData o) {
+		if(this.getFullname().compareTo(((UserData)o).getFullname()) > 0 ) return 1;
+		else if(this.getFullname().compareTo(((UserData)o).getFullname()) < 0 ) return -1;
+		else return 0;
 	}
 	
 }

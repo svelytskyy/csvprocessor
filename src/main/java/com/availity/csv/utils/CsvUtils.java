@@ -7,11 +7,15 @@ import java.util.Hashtable;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 
+import com.availity.csv.processor.CsvWriter;
 import com.availity.csvprocessor.model.UserData;
 
 public class CsvUtils {
 
+	final static Logger log = Logger.getLogger(CsvUtils.class);
+	
 	public static List<String> getListOfCSVFile(String filePath) {
 		String[] files = new File(filePath).list();
 		ArrayList<String>list = new ArrayList<String>(); 

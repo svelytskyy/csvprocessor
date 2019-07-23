@@ -3,16 +3,21 @@ package com.availity.csv.parser;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.availity.csv.lexical.CsvLexicalAnalyzer;
 import com.availity.csv.lexical.enumer.CsvColumnTypeEnum;
 import com.availity.csv.lexical.enumer.LexicalActionEnum;
 import com.availity.csv.lexical.enumer.LexicalTokenEnum;
+import com.availity.csv.utils.CsvUtils;
 
 public class CsvRecordParser {
 	
     private static final char DEFAULT_SEPARATOR = ',';
     private static final char DEFAULT_QUOTE = '"';
-
+    
+    final static Logger log = Logger.getLogger(CsvRecordParser.class);
+    
     @SuppressWarnings("unused")
 	public List<String>parseRecord(String line, CsvLexicalAnalyzer lex) throws Exception{
     	

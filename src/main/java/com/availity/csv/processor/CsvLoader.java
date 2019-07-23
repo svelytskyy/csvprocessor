@@ -41,7 +41,14 @@ public class CsvLoader {
 			while (scanner.hasNext()) {
 	           String line = scanner.nextLine();
 	           try {
-	        	   List<String>parsedline = parser.parseRecord(line, new CsvLexicalAnalyzer(CsvFormat.DEFAULT));
+	        	   List<String>parsedline = null;
+	        	   try {
+	        		   parsedline = parser.parseRecord(line, new CsvLexicalAnalyzer(CsvFormat.DEFAULT));
+	   			   } catch (Exception e) {
+				     log.error(e);
+	        		   CsvWriter writer = new CsvWriter();
+	        		   writer.writeFile(path, line);				     
+	   			   }        	   
 	        	   log.debug(parsedline);
 	        	   CsvUtils.putValue(companyBufferData, parsedline, parsedline.get(3));
 	        	   if((recordNum % bufferSize) == 0 || !scanner.hasNext()) {
