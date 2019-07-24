@@ -58,12 +58,12 @@ Implementation is in class com.availity.lisp.Lisp.java
 Business Case :
 
 Availity receives enrollment files from various bene8ts management and enrollment 
-solutions (I.e. HR platforms, payroll platforms).  Most of these 8les are typically in EDI format.  
-However, there are some 8les in CSV format.  For the 8les in CSVformat, 
+solutions (I.e. HR platforms, payroll platforms).  Most of these files are typically in EDI format.  
+However, there are some files in CSV format.  For the files in CSVformat, 
 write a program that will read the content of the 8le and separate enrollees by insurance company in its own file. 
 Additionally, sort the contents of each file by last and first name (ascending).  
 Lastly, if there are duplicate User Ids for the same Insurance Company, then only the record with the highest version 
-should be included. The following data points are included in the 8le:
+should be included. The following data points are included in the file:
 User Id (string)
 First and Last Name (string)
 Version (integer)
