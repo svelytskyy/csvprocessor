@@ -9,23 +9,24 @@ public class UserData implements Comparable<UserData>{
 	private String fullname;
 	private Long version;
 	private String company;
+	private long pos;
+	 
 	
-	public UserData() {
-
-	}
 	public UserData(String userid, String fullname, Long version, String company) {
 		super();
 		this.userid = userid;
 		this.fullname = fullname;
 		this.version = version;
 		this.company = company;
+		this.pos = pos;
 	}
 	
-	public void createUserData(List<String> lst) throws Exception{
+	public void createUserData(List<String> lst, Long pos) throws Exception{
 		this.userid = lst.get(0);
 		this.fullname = lst.get(1);
 		this.version = Long.parseLong(lst.get(2));
 		this.company = lst.get(3);
+		this.pos = pos;
 	}
 	
 	
@@ -54,8 +55,18 @@ public class UserData implements Comparable<UserData>{
 		this.company = company;
 	}
 
+	public long getPos() {
+		return pos;
+	}
+	public void setPos(long pos) {
+		this.pos = pos;
+	}
+	public UserData() {
+
+	}
+	
 	public String toFormattedString() {
-		return "UserData [userid=" + userid + ", fullname=" + fullname + ", version=" + version + ", company=" + company
+		return "UserData [userid=" + userid + ", fullname=" + fullname + ", version=" + version + ", company=" + company + ", pos="+pos
 				+ "]";
 	}
 	@Override
@@ -102,7 +113,7 @@ public class UserData implements Comparable<UserData>{
 	
 	@Override
 	public String toString() {
-		return this.userid + this.fullname + this.version + this.company;
+		return this.userid + ","+ this.fullname + "," + this.version + "," + this.company;
 	}
 
 	@Override

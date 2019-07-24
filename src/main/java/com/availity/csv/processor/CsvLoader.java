@@ -47,7 +47,7 @@ public class CsvLoader {
 	   			   } catch (Exception e) {
 				     log.error(e);
 	        		   CsvWriter writer = new CsvWriter();
-	        		   writer.writeFile(path, line);				     
+	        		   writer.writeLineIntoFile(path, line);				     
 	   			   }        	   
 	        	   log.debug(parsedline);
 	        	   CsvUtils.putValue(companyBufferData, parsedline, parsedline.get(3));

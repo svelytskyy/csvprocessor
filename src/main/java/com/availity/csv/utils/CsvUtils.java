@@ -2,13 +2,16 @@ package com.availity.csv.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import com.availity.csv.App;
 import com.availity.csv.processor.CsvWriter;
 import com.availity.csvprocessor.model.UserData;
 
@@ -59,5 +62,46 @@ public class CsvUtils {
 		 }
 
 	}
+	
+	public static List<String> getListOfCsvFiles(String path){
+	
+		File folder = new File(path);
+		File[] listOfFiles = folder.listFiles();
+		List<String> files = new ArrayList<String>();
+		for (int i = 0; i < listOfFiles.length; i++) {
+		  if (listOfFiles[i].isFile() && listOfFiles[i].getName().endsWith(".csv")) 
+		  files.add(listOfFiles[i].getName()); 
+		}
+		return files;
+	}
+	
+    public static Properties loadProperty() {
+    	InputStream input = null;
+        Properties prop = new Properties();
+    	try {
+    		input = App.class.getClassLoader().getResourceAsStream("fileprocessor.properties"); 
+            prop = new Properties();
+
+            if (input == null) {
+               log.error("Sorry, unable to find config.properties");
+                return null;
+            }
+
+            prop.load(input);
+
+        } catch (IOException e) {
+            log.error(e);
+        } finally {
+        	if(input!= null) {
+        		try {
+					input.close();
+				} catch (IOException e) {
+					log.error(e);
+				}
+        	}
+        }
+        return prop;
+    }
+
 	
 }
