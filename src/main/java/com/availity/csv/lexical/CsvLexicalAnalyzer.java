@@ -1,13 +1,25 @@
 package com.availity.csv.lexical;
 
+
+
 import org.apache.log4j.Logger;
 
 import com.availity.csv.lexical.enumer.CsvColumnTypeEnum;
 import com.availity.csv.lexical.enumer.LexicalActionEnum;
 import com.availity.csv.lexical.enumer.LexicalTokenEnum;
 import com.availity.csv.lexical.enumer.LineStatusEnum;
-import com.availity.csv.utils.CsvUtils;
 
+
+/**
+ * @author Sergiy Velytskyy
+ * 
+ * Lexical Analyzer - analyze the symbol, passed to the class, and based on
+ * the CSV line Column case : quoted or not make below Lexical Action :
+ * ADDCHAR, ADDCOLUMN, STARTCOLUMN
+ * 
+ * All test cases can be found in CsvRecordParserTest
+ *
+ */
 public class CsvLexicalAnalyzer {
 
     private final char delimiter;

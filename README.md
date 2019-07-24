@@ -10,6 +10,7 @@ Answer : My all projects in all companies where I worked before are deserved to 
 		For example, there was implemented own CSV parser with sequential access to 
 		files with very large volume in Availity assignment of the last task . Some ideas of Lexical analyzer were 
 		taken in Apache CSV parser and some improvement was made in open source code : https://github.com/apache/commons-csv.
+		RFC 4180 standard of CSV parser : https://en.wikipedia.org/wiki/Comma-separated_values with sequential access was implemented in Availity exercise.
 		But unfortunately, not all ideas like : multithreading merge-sort of large files were implemented since it's a big and time consuming task.
 		In Florida Blue - my current company latest project achievements are  Message Center, Eligibility & benefits Service Engine,
 		Cloud PAAS migration, Member Emulation. One of Florida BLue Certificate of Appreciation is attached.
@@ -59,8 +60,8 @@ Business Case :
 Availity receives enrollment files from various bene8ts management and enrollment 
 solutions (I.e. HR platforms, payroll platforms).  Most of these 8les are typically in EDI format.  
 However, there are some 8les in CSV format.  For the 8les in CSVformat, 
-write a program that will read the content of the 8le and separate enrollees by insurance company in its own 8le. 
-Additionally, sort the contents of each 8le by last and 8rst name (ascending).  
+write a program that will read the content of the 8le and separate enrollees by insurance company in its own file. 
+Additionally, sort the contents of each file by last and first name (ascending).  
 Lastly, if there are duplicate User Ids for the same Insurance Company, then only the record with the highest version 
 should be included. The following data points are included in the 8le:
 User Id (string)

@@ -29,6 +29,9 @@ import com.availity.csv.utils.CsvUtils;
  * 
  * 		1. To read csv files there was implemented CSV parser. Assumption was that files are very large and can't be loaded
  * 			into RAM fully, the access to the CSV file is sequential 
+ * 
+ * 	All Parser test cases can be found in CsvRecordParserTest class.
+ * 
  */
 public class App 
 {

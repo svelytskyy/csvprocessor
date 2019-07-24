@@ -22,6 +22,15 @@ import com.availity.csv.parser.CsvRecordParser;
 import com.availity.csv.utils.CsvUtils;
 import com.availity.csvprocessor.model.UserData;
 
+
+
+/**
+ * @author Sergiy Velytskyy
+ * 
+ * reads CSV file sequentially, writes data into buffered, filtered by insurance company.
+ * Than buffer with buffer size passed from App is flushed to the file.
+ *
+ */
 public class CsvLoader {
 	
 	final static Logger log = Logger.getLogger(CsvLoader.class);
