@@ -90,6 +90,28 @@ To run the project in eclipse next steps are required :
 			https://en.wikipedia.org/wiki/Comma-separated_values
 	
 	All unit test cases were created according above RFC 4180 standard.
+	Assumtions on CSV file :
+	Any size, no headers, column order is matter and in below format :
+	
+	User Id (string), First and Last Name (string), Version (integer), Insurance Company (string)
+	
+	Unit Test cases for CSV parser :
+	
+	1. 1997,Ford,E350
+	2. "1997","Ford","E350"
+	3. 1997,Ford,E350,"Super, luxurious truck"
+	4. 1997,Ford,E350,"Super, ""luxurious"" truck"
+	5. 1997, "Ford" ,E350
+	
+	Below cases are not supported :
+	
+	1) Fields with embedded line breaks must be quoted (however, many CSV implementations do not support embedded line breaks).
+		1997,Ford,E350,"Go get one now
+		they are going fast"
+	2) In some CSV implementations[which?], leading and trailing spaces and tabs are trimmed (ignored). Such trimming is forbidden by RFC 4180, which states "Spaces are considered part of a field and should not be ignored."
+		1997, Ford, E350
+		not same as
+		1997,Ford,E350
 			
 2.	Unfortunately there wasn't enough time to implement sorting for large files. 
 	But in this case to sort large csv files algorithm Merge-Sort would be applied with Multithreading :
