@@ -4,13 +4,13 @@
 
 Question : Tell me about your proudest professional achievement.  It can be a personal or school project. 
 
-Answer : My all projects in all companies where I was working before are deserved to be considered
+Answer : My all projects in all companies where I worked before are deserved to be considered
 		as my professional achievement. It's very hard to determine which one is the proudest since I try to be 
-		a creative person in every my project.
-		Even in this assignment of the last task there was implemented own CSV parser with sequantial access to 
-		files with very large volume. Some ideas of Lexical analyzer were taken in Apache CSV parser and some improvement was 
-		made in open source code : https://github.com/apache/commons-csv.
-		But unfortunately not all ideas like : multithreading merge-sort of large files was implemented since it's a big and time consuming task.
+		a creative person in each of them.
+		For example, there was implemented own CSV parser with sequential access to 
+		files with very large volume in Availity assignment of the last task . Some ideas of Lexical analyzer were 
+		taken in Apache CSV parser and some improvement was made in open source code : https://github.com/apache/commons-csv.
+		But unfortunately, not all ideas like : multithreading merge-sort of large files were implemented since it's a big and time consuming task.
 		In Florida Blue - my current company latest project achievements are  Message Center, Eligibility & benefits Service Engine,
 		Cloud PAAS migration, Member Emulation. One of Florida BLue Certificate of Appreciation is attached.
   
@@ -24,9 +24,8 @@ Answer : My all projects in all companies where I was working before are deserve
 Question : Tell me a about a book, blog, article or GitHub repo you read or liked recently, and why you like it and why you should recommend I do the same. 
 
 Answer : The latest tech book I have almost completed is Next Generation Databases: NoSQL, NewSQL, and Big Data.
- 		It is the book to help you choose the correct database technology at a time It is the book to help you choose the correct database technology at a time 
- 		when fundamental architectural differences are making what used to be an easy choice into a difficult one that is fraught with risk.
- 		In now days when technologies are blooming daily it becomes very important to understand the concept but not details.  
+ 		This book is about helping you choose the correct database technology at a time. 
+ 		In today's world when technologies are blooming daily it becomes very important to understand the concept but not details especially databases.  
 	
 
 -------------------------------------------------------------
@@ -82,8 +81,8 @@ To run the project in eclipse next steps are required :
 4. Change the property : point root path to your csv files in fileprocessor.properties
 
 
-1. 	To read very large CSV files it was implemented CSV parser.
-	POC was done on Apache commons-csv parser and it was found that it loads all document into RAM
+1. 	In order to read very large CSV files, CSV parser was implemented.
+	POC was done on Apache commons-csv parser, and it was found that it loads the whole document into RAM
 	which is not our case. Thats why own CSV parser was implemented which reads CSV records sequentially.
 	The parser was based on CsvLexicalAnalyzer class which makes analysis of CSV record based on RFC 4180 standard.
 
