@@ -10,7 +10,7 @@ Answer : My all projects in all companies where I worked before are deserved to 
 		For example, there was implemented own CSV parser with sequential access to 
 		files with very large volume in Availity assignment of the last task . Some ideas of Lexical analyzer were 
 		taken in Apache CSV parser and some improvement was made in open source code : https://github.com/apache/commons-csv.
-		     RFC 4180 standard of CSV parser : https://en.wikipedia.org/wiki/Comma-separated_values with sequential access was implemented in Availity exercise.
+		It was also implemented RFC 4180 standard of CSV parser : https://en.wikipedia.org/wiki/Comma-separated_values with sequential access in Availity exercise.
 		But unfortunately, not all ideas like : multithreading merge-sort of large files were implemented since it's a big and time consuming task.
 		In Florida Blue - my current company latest project achievements are  Message Center, Eligibility & benefits Service Engine,
 		Cloud PAAS migration, Member Emulation. One of Florida BLue Certificate of Appreciation is attached.
